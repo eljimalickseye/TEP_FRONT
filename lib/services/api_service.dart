@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   // Configuration pour le VPS de production. Modifiez cette URL lors de votre déploiement.
-  static const String baseUrl = 'http://180.149.199.233:8000/api'; 
+  static const String baseUrl = 'http://180.149.199.233/teptep-api/api'; 
   static String? token;
 
   static Future<void> init() async {
