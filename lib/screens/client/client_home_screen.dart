@@ -316,7 +316,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                                               style: TextStyle(fontSize: 12, color: Colors.grey),
                                             ),
                                             Text(
-                                              trip.vehicle?.name ?? 'Minibus Standard',
+                                              trip.vehicle?.name ?? "Mini-car Chang'An",
                                               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
                                             ),
                                           ],
