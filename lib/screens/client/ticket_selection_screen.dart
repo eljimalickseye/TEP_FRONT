@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../models/trip.dart';
 import '../../providers/booking_provider.dart';
@@ -168,7 +169,12 @@ class _TicketSelectionScreenState extends State<TicketSelectionScreen> {
                     ),
                     child: const Text('VOLANT', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.blueGrey)),
                   ),
-                  const Icon(Icons.person, color: Colors.blueGrey, size: 20), 
+                  SvgPicture.asset(
+                    'assets/icons/profile.svg',
+                    colorFilter: const ColorFilter.mode(Colors.blueGrey, BlendMode.srcIn),
+                    width: 20,
+                    height: 20,
+                  ), 
                 ],
               ),
               const Divider(height: 16),
@@ -215,14 +221,18 @@ class _TicketSelectionScreenState extends State<TicketSelectionScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.event_seat,
-                              size: 14,
-                              color: isBooked
-                                  ? Colors.white
-                                  : isSelected
-                                      ? Colors.white
-                                      : Colors.grey.shade600,
+                            SvgPicture.asset(
+                              'assets/icons/seat.svg',
+                              width: 14,
+                              height: 14,
+                              colorFilter: ColorFilter.mode(
+                                isBooked
+                                    ? Colors.white
+                                    : isSelected
+                                        ? Colors.white
+                                        : Colors.grey.shade600,
+                                BlendMode.srcIn,
+                              ),
                             ),
                             const SizedBox(height: 1),
                             Text(

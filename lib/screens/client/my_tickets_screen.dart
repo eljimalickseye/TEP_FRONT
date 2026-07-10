@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../../providers/booking_provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyTicketsScreen extends StatefulWidget {
   const MyTicketsScreen({super.key});
@@ -172,7 +173,12 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> {
                                 ),
                                 if (ticket.status == 'booked')
                                   IconButton(
-                                    icon: const Icon(Icons.qr_code_2, size: 36, color: Color(0xFF1E3C72)),
+                                    icon: SvgPicture.asset(
+                                      'assets/icons/scanner.svg',
+                                      colorFilter: const ColorFilter.mode(Color(0xFF1E3C72), BlendMode.srcIn),
+                                      width: 32,
+                                      height: 32,
+                                    ),
                                     onPressed: () => _showTicketQR(context, ticket.ticketCode),
                                   )
                                 else

@@ -6,6 +6,7 @@ import '../login_screen.dart';
 import 'ticket_selection_screen.dart';
 import 'my_tickets_screen.dart';
 import 'live_tracking_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ClientHomeScreen extends StatefulWidget {
   const ClientHomeScreen({super.key});
@@ -37,7 +38,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
         backgroundColor: const Color(0xFF1E3C72),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
+            icon: SvgPicture.asset(
+              'assets/icons/logout.svg',
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              width: 24,
+              height: 24,
+            ),
             onPressed: () async {
               await auth.logout();
               if (mounted) {
@@ -97,7 +103,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                               ),
                             );
                           },
-                          icon: const Icon(Icons.confirmation_num_outlined),
+                           icon: SvgPicture.asset(
+                            'assets/icons/ticket.svg',
+                            colorFilter: const ColorFilter.mode(Color(0xFF1E3C72), BlendMode.srcIn),
+                            width: 20,
+                            height: 20,
+                          ),
                           label: const Text('Mes Billets'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
@@ -118,7 +129,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                               ),
                             );
                           },
-                          icon: const Icon(Icons.map_outlined),
+                           icon: SvgPicture.asset(
+                            'assets/icons/map.svg',
+                            colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                            width: 20,
+                            height: 20,
+                          ),
                           label: const Text('Carte Live'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.orangeAccent,
@@ -135,12 +151,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
               ),
             ),
 
-            const Padding(
-              padding: EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Départs Disponibles',
                     style: TextStyle(
                       fontSize: 18,
@@ -148,7 +164,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                       color: Color(0xFF1E3C72),
                     ),
                   ),
-                  Icon(Icons.directions_bus, color: Color(0xFF1E3C72)),
+                  SvgPicture.asset(
+                    'assets/icons/bus.svg',
+                    colorFilter: const ColorFilter.mode(Color(0xFF1E3C72), BlendMode.srcIn),
+                    width: 20,
+                    height: 20,
+                  ),
                 ],
               ),
             ),

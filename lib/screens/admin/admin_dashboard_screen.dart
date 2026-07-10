@@ -4,6 +4,7 @@ import '../../providers/auth_provider.dart';
 import '../../providers/booking_provider.dart';
 import '../../providers/tracking_provider.dart';
 import '../login_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../client/live_tracking_screen.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
@@ -155,7 +156,12 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         foregroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: SvgPicture.asset(
+              'assets/icons/logout.svg',
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              width: 24,
+              height: 24,
+            ),
             onPressed: () async {
               await auth.logout();
               if (mounted) {
@@ -237,7 +243,12 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.map_outlined),
+                  icon: SvgPicture.asset(
+                    'assets/icons/map.svg',
+                    colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                    width: 20,
+                    height: 20,
+                  ),
                   label: const Text('Ouvrir la Carte de Supervision Live'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1E3C72),
@@ -275,10 +286,15 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                           return Card(
                             margin: const EdgeInsets.only(bottom: 12),
                             child: ListTile(
-                              leading: const CircleAvatar(
-                                backgroundColor: Color(0xFF1E3C72),
+                              leading: CircleAvatar(
+                                backgroundColor: const Color(0xFF1E3C72),
                                 foregroundColor: Colors.white,
-                                child: Icon(Icons.directions_bus_filled_outlined),
+                                child: SvgPicture.asset(
+                                  'assets/icons/bus.svg',
+                                  colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                                  width: 20,
+                                  height: 20,
+                                ),
                               ),
                               title: Text(line.name, style: const TextStyle(fontWeight: FontWeight.bold)),
                               subtitle: Text('${line.stops.length} arrêts • ${line.distance} km • ${line.basePrice.toStringAsFixed(0)} FCFA'),

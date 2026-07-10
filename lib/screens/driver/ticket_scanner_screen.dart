@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../providers/booking_provider.dart';
 
 class TicketScannerScreen extends StatefulWidget {
@@ -107,10 +108,11 @@ class _TicketScannerScreenState extends State<TicketScannerScreen> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  const Icon(
-                    Icons.qr_code_scanner,
-                    size: 140,
-                    color: Color(0xFF1E3C72),
+                  SvgPicture.asset(
+                    'assets/icons/scanner.svg',
+                    colorFilter: const ColorFilter.mode(Color(0xFF1E3C72), BlendMode.srcIn),
+                    width: 130,
+                    height: 130,
                   ),
                   // Animated scan line simulation
                   Positioned(

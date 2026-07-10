@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/booking_provider.dart';
@@ -211,7 +212,12 @@ class _DriverTripScreenState extends State<DriverTripScreen> {
         foregroundColor: Colors.white,
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: SvgPicture.asset(
+              'assets/icons/logout.svg',
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              width: 24,
+              height: 24,
+            ),
             onPressed: () async {
               await auth.logout();
               if (mounted) {
@@ -254,7 +260,12 @@ class _DriverTripScreenState extends State<DriverTripScreen> {
                                 line?.name ?? 'Trajet',
                                 style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF1E3C72)),
                               ),
-                              const Icon(Icons.airport_shuttle, color: Color(0xFF1E3C72)),
+                              SvgPicture.asset(
+                                'assets/icons/bus.svg',
+                                colorFilter: const ColorFilter.mode(Color(0xFF1E3C72), BlendMode.srcIn),
+                                width: 22,
+                                height: 22,
+                              ),
                             ],
                           ),
                           const Divider(height: 24),
@@ -281,7 +292,12 @@ class _DriverTripScreenState extends State<DriverTripScreen> {
                           ),
                         );
                       },
-                      icon: const Icon(Icons.qr_code_scanner),
+                      icon: SvgPicture.asset(
+                        'assets/icons/scanner.svg',
+                        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                        width: 20,
+                        height: 20,
+                      ),
                       label: const Text('Scanner / Valider un Ticket Client'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.teal,
@@ -375,14 +391,19 @@ class _DriverTripScreenState extends State<DriverTripScreen> {
                       elevation: 6,
                       color: Colors.green.shade50,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      child: const Padding(
-                        padding: EdgeInsets.all(20.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.satellite_alt, color: Colors.green, size: 24),
-                            SizedBox(width: 12),
-                            Expanded(
+                            SvgPicture.asset(
+                              'assets/icons/map.svg',
+                              colorFilter: const ColorFilter.mode(Colors.green, BlendMode.srcIn),
+                              width: 24,
+                              height: 24,
+                            ),
+                            const SizedBox(width: 12),
+                            const Expanded(
                               child: Text(
                                 'Transmission de vos coordonnées GPS réelles active...',
                                 style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
