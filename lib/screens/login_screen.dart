@@ -102,13 +102,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Color(0xFF1E3C72),
                             ),
                             const SizedBox(height: 12),
-                            const Text(
-                              'TepTep',
+                             const Text(
+                              "Djiby's Business",
                               style: TextStyle(
-                                fontSize: 32,
+                                fontSize: 24,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF1E3C72),
-                                letterSpacing: 1.5,
+                                letterSpacing: 1.2,
                               ),
                             ),
                             const Text(
